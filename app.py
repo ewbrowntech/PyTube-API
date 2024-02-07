@@ -11,12 +11,10 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import os
-import logging
 from fastapi import FastAPI
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from logging import logger
 from limiter import limiter
 
 # Create FastAPI client

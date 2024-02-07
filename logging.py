@@ -9,3 +9,10 @@ Copyright (C) 2024 by Ethan Brown
 All rights reserved. This file is part of the PyTube-API project and is released under
 the MIT License. See the LICENSE file for more details.
 """
+
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
