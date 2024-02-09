@@ -16,11 +16,11 @@ from slowapi.errors import RateLimitExceeded
 
 from limiter import limiter
 
-from routers.videos import router as videos_router
+from routers.video import router as video_router
 
 # Create FastAPI client
 app = FastAPI()
-app.include_router(videos_router, prefix="/videos")
+app.include_router(video_router, prefix="/video")
 
 # Configure rate limiting
 app.state.limiter = limiter

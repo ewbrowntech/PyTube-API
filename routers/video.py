@@ -10,7 +10,7 @@ All rights reserved. This file is part of the PyTube-API project and is released
 the MIT License. See the LICENSE file for more details.
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Query, HTTPException
 from limiter import limiter
 
 
@@ -18,8 +18,8 @@ router = APIRouter()
 
 
 @router.get("/", status_code=200)
-async def get_video(v: str = None):
+async def get_video(v: str = Query(None, description="YouTube video ID")):
     if v is None:
-        return HTTPException(
+        raise HTTPException(
             status_code=400, detail="Query paramater 'v' for video ID is required"
         )
