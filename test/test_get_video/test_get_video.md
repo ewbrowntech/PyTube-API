@@ -1,16 +1,16 @@
 ### get_video()
 - **[000] test_get_video_000_nominal**
-  - Conditions:
-  - Result:
-- **[000] test_get_video_001_anomalous_no_video_id**
+  - Conditions: v=dQw4w9WgXcQ
+  - Result: {"v": "dQw4w9WgXcQ"}
+- **[001] test_get_video_001_anomalous_no_video_id**
   - Conditions: No video ID is provided in query parameter
-  - Result: HTTP 400 - "Query paramater 'v' for video ID is required"
-- **[000] test_get_video_002_anomalous**
-  - Conditions: Video ID does 
-  - Result:
-- **[000] test_get_video_003_anomalous**
-  - Conditions:
-  - Result:
-- **[000] test_get_video_004_anomalous**
-  - Conditions:
-  - Result:
+  - Result: "400: Query paramater 'v' for video ID is required"
+- **[002] test_get_video_002_anomalous_id_too_short**
+  - Conditions: v=dQw4w9WgXc
+  - Result: "400: The provided video ID does not meet the required format"
+- **[003] test_get_video_003_anomalous_id_too_long**
+  - Conditions: v=dQw4w9WgXcQc
+  - Result: "400: The provided video ID does not meet the required format"
+- **[004] test_get_video_004_anomalous_id_invalid_characters**
+  - Conditions: v=dQw4w9WgXc!
+  - Result: "400: The provided video ID does not meet the required format"
