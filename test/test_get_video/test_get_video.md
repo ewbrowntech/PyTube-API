@@ -1,7 +1,7 @@
 ### get_video()
 - **[000] test_get_video_000_nominal**
   - Conditions: v=dQw4w9WgXcQ
-  - Result: {"v": "dQw4w9WgXcQ"}
+  - Result: YouTube object returned
 - **[001] test_get_video_001_anomalous_no_video_id**
   - Conditions: No video ID is provided in query parameter
   - Result: "400: Query paramater 'v' for video ID is required"

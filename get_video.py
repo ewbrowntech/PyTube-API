@@ -1,4 +1,5 @@
 from fastapi import HTTPException, Query
+from pytube import YouTube
 import re
 
 
@@ -20,4 +21,5 @@ async def get_video(v: str = Query(None, description="YouTube video ID")):
             status_code=400,
             detail="The provided video ID does not meet the required format",
         )
-    return v
+    video = YouTube("?v=" + v)
+    return video

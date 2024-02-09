@@ -20,9 +20,10 @@ async def test_get_video_000_nominal(test_client):
     """
     Test 000 - Nominal
     Conditions: v=dQw4w9WgXcQ
-    Result: {"v": "dQw4w9WgXcQ"}
+    Result: YouTube object returned
     """
-    assert await get_video(v="dQw4w9WgXcQ") == "dQw4w9WgXcQ"
+    video = await get_video(v="dQw4w9WgXcQ")
+    assert video.title == "Never Gonna Give You Up"
 
 
 @pytest.mark.asyncio
