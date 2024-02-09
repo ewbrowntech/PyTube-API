@@ -11,6 +11,8 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import pytest
+from fastapi import HTTPException
+from get_video import get_video
 
 
 @pytest.mark.asyncio
@@ -20,6 +22,6 @@ async def test_get_video_001_anomalous_no_video_id(test_client):
     Conditions: No video ID is provided in query parameter
     Result: HTTP 400 - "Query paramater 'v' for video ID is required"
     """
-    response = test_client.get("video")
-    assert response.status_code == 400
-    assert response.json()["detail"] == "Query paramater 'v' for video ID is required"
+    with pytest.raises(HTTPException) as e:
+        video = await get_video(v=None)
+    assert str(e.value) == "400: Query paramater 'v' for video ID is required"
