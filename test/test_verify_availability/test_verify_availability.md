@@ -1,0 +1,33 @@
+### verify_availability()
+
+- **[000] test_verify_availability_000_nominal_youtube_provided**
+  - Conditions: Nominal YouTube object provided
+  - Result: True
+- **[001] test_verify_availability_001_nominal_id_provided**
+  - Conditions: Nominal video ID provided
+  - Result: True
+- **[002] test_verify_availability_002_anomalous_no_youtube_or_id_provided**
+  - Conditions: Neither YouTube object nor ID provided
+  - Result: ArgumentError - "Either argument 'youtube' or 'v' must be provided."
+- **[003] test_verify_availability_003_anomaluos_youtube_and_id_provided**
+  - Conditions: Both YouTube object and ID provided
+  - Result: Argumenterror - "Cannot accept both arguments 'youtube' and 'v'. One and only one should be provided."
+- **[004] test_verify_availability_004_anomalous_video_unavailable**
+  - Conditions: v=aaaaaaaaaaa
+  - Result: "404: aaaaaaaaaaa is unavailable"
+- **[005] test_verify_availability_005_anomalous_livestream_recording_unavailable**
+  - Conditions: v=5YceQ8YqYMc | Livestream recording without available recording
+  - Result: "404: 5YceQ8YqYMc is unavailable"
+- **[006] test_verify_availability_006_anomalous_livestream_error**
+  - Conditions: v=YLnZklYFe7E | Video is an active livestream
+  - Result: "404: YLnZklYFe7E is streaming live and cannot be loaded" 
+- **[007] test_verify_availability_007_anomalous_region_lock**
+  - Conditions: v=hZpzr8TbF08 | Video is region-locked
+  - Result: "403: hZpzr8TbF08 is not available in your region"
+- **[009] test_verify_availability_008_anomalous_video_private**
+  - Conditions: v=m8uHb5jIGN8 | Video is private
+  - Result: "403: m8uHb5jIGN8 is a private video"
+- **[010] test_verify_availability_009_anomalous_members_only**
+  - COnditions: v=TsX11pJIARc | Video is member's only
+  - Result "404: TsX11pJIARc is unavailable"
+- 
