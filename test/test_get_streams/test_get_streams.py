@@ -11,6 +11,7 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import pytest
+from pytube.query import StreamQuery
 from fastapi import HTTPException
 from exceptions import ArgumentError
 from get_video import get_video
@@ -24,11 +25,13 @@ async def test_get_streams_000_nominal():
     Conditions: v=SOI4OF7iIr4
     Result: Streams resturned
     """
-    pass
+    youtube = await get_video(v="_suW-XIX_sQ")
+    streams = await get_streams(youtube=youtube)
+    assert isinstance(streams, StreamQuery)
 
 
 @pytest.mark.asyncio
-async def est_get_streams_001_anomalous_no_input():
+async def test_get_streams_001_anomalous_no_input():
     """
     Test 001 - Anomalous
     Conditions: youtube = None
@@ -36,7 +39,6 @@ async def est_get_streams_001_anomalous_no_input():
     """
     youtube = None
     with pytest.raises(ArgumentError) as e:
-        print(e)
         streams = await get_streams(youtube=youtube)
     assert str(e.value) == "Argument 'youtube' was None"
 

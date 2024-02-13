@@ -25,4 +25,4 @@ async def get_streams(youtube: YouTube):
         streams = youtube.streams
     except AgeRestrictedError as e:
         raise HTTPException(status_code=401, detail=str(e))
-    pass
+    return streams
