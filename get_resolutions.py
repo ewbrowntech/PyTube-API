@@ -27,5 +27,4 @@ async def get_resolutions(streams: StreamQuery):
     for stream in videoStreams:
         if stream.resolution is not None and stream.resolution not in resolutions:
             resolutions.append(stream.resolution)
-    print(resolutions)
     return resolutions

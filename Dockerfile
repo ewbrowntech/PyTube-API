@@ -1,6 +1,11 @@
 FROM python:3.11
 WORKDIR /app
 
+# Install FFmpeg
+RUN apt-get update \
+    && apt-get install -y ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Poetry for dependency management
 RUN pip install poetry
 
