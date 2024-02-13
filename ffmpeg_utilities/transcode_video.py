@@ -11,7 +11,7 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import os
-import ffmpeg_utilities
+import ffmpeg
 
 
 async def transcode_video(input_path, output_path):
@@ -27,5 +27,5 @@ async def transcode_video(input_path, output_path):
             f"Path {output_path} already exists and would be overwritten"
         )
 
-    ffmpeg_utilities.input(input_path).output(output_path, codec="h264").run(quiet=True)
+    ffmpeg.input(input_path).output(output_path, codec="h264").run(quiet=True)
     return
