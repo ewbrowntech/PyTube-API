@@ -30,17 +30,17 @@ async def download_youtube_video(
             "Arguments audio_only and video_only and cannot be True simultaneously"
         )
 
-    video = get_video(v)
-    streams = get_streams(video)
+    video = await get_video(v)
+    streams = await get_streams(video)
 
     # Download the audio stream for audio-only and complete video requests
     if not video_only:
-        audio_file_id = download_audio_stream(streams)
+        audio_file_id = await download_audio_stream(streams)
         audio_filename = audio_file_id + ".mp3"
         audio_stream_path = os.path.join(get_storage_directory(), audio_filename)
     # Download the video stream for video-only and complete video requests
     elif not audio_only:
-        video_file_id, video_file_extension = download_video_stream(streams)
+        video_file_id, video_file_extension = await download_video_stream(streams)
         video_filename = video_file_id + video_file_extension
         # Give the video stream a temporary name for FFMPEG access
         temp_video_stream_path = os.path.join(
