@@ -58,7 +58,7 @@ async def download_youtube_video(
         os.rename(video_stream_path, temp_video_stream_path)
 
         # Execute the stitch operation
-        output_path = video_file_id + video_file_extension
+        output_path = os.path.join(get_storage_directory(), video_filename)
         await stitch_video(audio_stream_path, temp_video_stream_path, output_path)
 
         # Remove the audio and video streams once complete, as they are no longer needed

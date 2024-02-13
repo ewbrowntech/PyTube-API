@@ -18,13 +18,13 @@ async def stitch_video(audio_path, video_path, output_path):
     # Validate that the audio path exists and represents a file
     if not os.path.exists(audio_path):
         raise FileNotFoundError(f"Could not find file at {audio_path}")
-    if not os.path.isdir(audio_path):
+    if os.path.isdir(audio_path):
         raise IsADirectoryError(f"Path {audio_path} represents a directory, not a file")
 
     # Validate that the video path exists and represents a file
     if not os.path.exists(video_path):
         raise FileNotFoundError(f"Could not find file at {video_path}")
-    if not os.path.isdir(video_path):
+    if os.path.isdir(video_path):
         raise IsADirectoryError(f"Path {video_path} represents a directory, not a file")
 
     # Do not allow method to overwrite an existing file
