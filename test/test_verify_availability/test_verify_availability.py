@@ -1,3 +1,15 @@
+"""
+test_verify_availability.py
+
+@Author: Ethan Brown - ethan@ewbrowntech.com
+
+Test the functionality of verify_availability()
+
+Copyright (C) 2024 by Ethan Brown
+All rights reserved. This file is part of the PyTube-API project and is released under
+the MIT License. See the LICENSE file for more details.
+"""
+
 import pytest
 from fastapi import HTTPException
 from exceptions import ArgumentError
