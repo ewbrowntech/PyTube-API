@@ -1,6 +1,6 @@
 ### get_resolutions()
 
-- **[000] test_get_resolutions_00_nominal**
+- **[000] test_get_resolutions_000_nominal**
   - Conditions: v=SOI4OF7iIr4 | Streams supplied
   - Result: resolutions = ["1080p", "720p", "480p", "360p", "240p", "144p"]
 - **[001] test_get_resolutions_001_anomalous_no_input**

@@ -15,3 +15,9 @@ class ArgumentError(Exception):
     def __init__(self, message):
         self.message = message
         super().__init__(message)
+
+
+class UnvailableResolutionException(Exception):
+    def __init__(self, resolution):
+        self.message = f"No stream is available at request resolution of {resolution}"
+        super().__init__(self.message)

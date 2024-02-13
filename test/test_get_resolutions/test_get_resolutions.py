@@ -20,7 +20,7 @@ from get_resolutions import get_resolutions
 
 
 @pytest.mark.asyncio
-async def test_get_streams_000_nominal():
+async def test_get_resolutions_000_nominal():
     """
     Test 000 - Nominal
     Conditions: Streams supplied
