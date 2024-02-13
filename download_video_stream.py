@@ -20,7 +20,7 @@ from get_storage_directory import get_storage_directory
 async def download_video_stream(streams: StreamQuery, resolution: str):
     # Get the video stream with the most compatible codec at the given resolution
     video_streams = streams.filter(only_video=True)
-    preferred_stream = get_preferred_stream(video_streams, resolution)
+    preferred_stream = await get_preferred_stream(video_streams, resolution)
 
     # Download the video stream
     file_id = secrets.token_hex(4)
