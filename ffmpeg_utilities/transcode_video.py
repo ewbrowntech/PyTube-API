@@ -18,7 +18,7 @@ async def transcode_video(input_path, output_path):
     # Validate that the input path exists and represents a file
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Could not find file at {input_path}")
-    if not os.path.isdir(input_path):
+    if os.path.isdir(input_path):
         raise IsADirectoryError(f"Path {input_path} represents a directory, not a file")
 
     # Do not allow method to overwrite an existing file
