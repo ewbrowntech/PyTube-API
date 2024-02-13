@@ -39,8 +39,10 @@ async def download_youtube_video(
         audio_filename = audio_file_id + ".mp3"
         audio_stream_path = os.path.join(get_storage_directory(), audio_filename)
     # Download the video stream for video-only and complete video requests
-    elif not audio_only:
-        video_file_id, video_file_extension = await download_video_stream(streams)
+    if not audio_only:
+        video_file_id, video_file_extension = await download_video_stream(
+            streams, resolution
+        )
         video_filename = video_file_id + video_file_extension
         # Give the video stream a temporary name for FFMPEG access
         temp_video_stream_path = os.path.join(
