@@ -2,7 +2,7 @@
 
 - **[000] test_get_streams_000_nominal**
   - Conditions: v=SOI4OF7iIr4
-  - Result: Streams resturned
+  - Result: Streams returned
 - **[001] test_get_streams_001_anomalous_no_input**
   - Conditions: youtube = None
   - Result: ArgumentError("Argument 'youtube' was None")

@@ -23,7 +23,7 @@ async def test_get_streams_000_nominal():
     """
     Test 000 - Nominal
     Conditions: v=SOI4OF7iIr4
-    Result: Streams resturned
+    Result: Streams returned
     """
     youtube = await get_video(v="_suW-XIX_sQ")
     streams = await get_streams(youtube=youtube)
