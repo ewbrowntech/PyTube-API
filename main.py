@@ -43,10 +43,11 @@ async def download_youtube_video(
         video_file_id, video_file_extension = await download_video_stream(
             streams, resolution
         )
-        video_filename = video_file_id + video_file_extension
+        video_filename = video_file_id + ".mp4"
         # Give the video stream a temporary name for FFMPEG access
         temp_video_stream_path = os.path.join(
-            get_storage_directory(), "video-stream-" + video_filename
+            get_storage_directory(),
+            "video-stream-" + video_file_id + video_file_extension,
         )
         video_stream_path = os.path.join(get_storage_directory(), video_filename)
         await transcode_video(temp_video_stream_path, video_stream_path)

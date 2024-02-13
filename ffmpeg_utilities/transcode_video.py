@@ -26,6 +26,12 @@ async def transcode_video(input_path, output_path):
         raise FileExistsError(
             f"Path {output_path} already exists and would be overwritten"
         )
-
-    ffmpeg.input(input_path).output(output_path, codec="h264").run(quiet=True)
+    try:
+        ffmpeg.input(input_path).output(
+            output_path, vcodec="libx264", acodec="libopus"
+        ).run(quiet=True)
+    except ffmpeg.Error as e:
+        out = e.stdout.decode("utf8")
+        err = e.stderr.decode("utf8")
+        raise Exception(f"stdout: {out}\nstderr: {err}")
     return
