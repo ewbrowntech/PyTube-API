@@ -47,5 +47,5 @@ async def download_video(
     """
     filename = await download_youtube_video(v, resolution, audio_only, video_only)
     filepath = os.path.join(get_storage_directory(), filename)
-    # background_tasks.add_task(remove_file, filepath)
+    background_tasks.add_task(remove_file, filepath)
     return FileResponse(path=filepath, filename=filename)
