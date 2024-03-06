@@ -50,7 +50,6 @@ async def download_youtube_video(
             "video-stream-" + video_file_id + video_file_extension,
         )
         video_stream_path = os.path.join(get_storage_directory(), video_filename)
-        await transcode_video(temp_video_stream_path, video_stream_path)
 
     # For complete video requests, stitch the audio and video streams together
     if not audio_only and not video_only:
@@ -69,6 +68,6 @@ async def download_youtube_video(
     if audio_only:
         return audio_filename
     elif video_only:
-        return video_filename
+        return "video-stream-" + video_file_id + video_file_extension
     else:
         return video_filename
