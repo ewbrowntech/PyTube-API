@@ -14,9 +14,9 @@ from fastapi import FastAPI
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from backend.limiter import limiter
+from app.limiter import limiter
 
-from backend.routers.video import router as video_router
+from app.routers.video import router as video_router
 
 # Create FastAPI client
 app = FastAPI()

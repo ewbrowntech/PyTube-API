@@ -2,9 +2,8 @@ version: '3.8'
 
 services:
   api:
-    build: ./
-    env_file:
-      .env
+    build: ./backend
+    env_file: .env
     volumes:
       - ./storage:/storage
     ports:

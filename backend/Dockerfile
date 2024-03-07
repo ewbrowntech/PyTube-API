@@ -1,7 +1,7 @@
 FROM python:3.11
 
 # Set the working directory of the application
-WORKDIR /app
+WORKDIR /backend
 
 # Install FFmpeg
 RUN apt-get update \
@@ -12,7 +12,7 @@ RUN apt-get update \
 RUN pip install poetry
 
 # Install dependencies using Poetry
-COPY pyproject.toml poetry.lock* /app/
+COPY pyproject.toml poetry.lock* /backend/
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev
 
@@ -20,7 +20,7 @@ RUN poetry config virtualenvs.create false \
 EXPOSE 8000
 
 # Copy the rest of your application's code
-COPY ./backend /app/backend
+COPY ./app /backend/app
 
 # Set the command to run your application
-CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0"]
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0"]

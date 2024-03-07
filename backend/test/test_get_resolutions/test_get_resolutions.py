@@ -13,10 +13,10 @@ the MIT License. See the LICENSE file for more details.
 import pytest
 from pytube.query import StreamQuery
 from fastapi import HTTPException
-from backend.exceptions import ArgumentError
-from backend.get_video import get_video
-from backend.get_streams import get_streams
-from backend.get_resolutions import get_resolutions
+from app.exceptions import ArgumentError
+from app.get_video import get_video
+from app.get_streams import get_streams
+from app.get_resolutions import get_resolutions
 
 
 @pytest.mark.asyncio
