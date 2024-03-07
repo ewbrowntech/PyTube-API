@@ -11,7 +11,7 @@ the MIT License. See the LICENSE file for more details.
 """
 
 from pytube.query import StreamQuery
-from app.exceptions import ArgumentError
+from app.dependencies.exceptions import ArgumentError
 
 
 async def get_resolutions(streams: StreamQuery):

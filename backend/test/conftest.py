@@ -11,8 +11,8 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import pytest_asyncio
-from app.get_video import get_video
-from app.get_streams import get_streams
+from app.dependencies.get_video import get_video
+from app.dependencies.get_streams import get_streams
 
 
 @pytest_asyncio.fixture(scope="function")

@@ -12,10 +12,10 @@ the MIT License. See the LICENSE file for more details.
 
 import pytest
 from fastapi import HTTPException
-from app.exceptions import ArgumentError, UnvailableResolutionException
-from app.get_video import get_video
-from app.get_streams import get_streams
-from app.get_preferred_stream import get_preferred_stream
+from app.dependencies.exceptions import ArgumentError, UnvailableResolutionException
+from app.dependencies.get_video import get_video
+from app.dependencies.get_streams import get_streams
+from app.dependencies.get_preferred_stream import get_preferred_stream
 
 
 @pytest.mark.asyncio

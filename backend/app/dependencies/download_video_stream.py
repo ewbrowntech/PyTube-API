@@ -14,8 +14,7 @@ import os
 import logging
 import secrets
 from pytube.query import StreamQuery
-from app.get_preferred_stream import get_preferred_stream
-from app.get_storage_directory import get_storage_directory
+from app.dependencies.get_preferred_stream import get_preferred_stream
 
 # Configure logging
 logging.basicConfig(
@@ -34,6 +33,6 @@ async def download_video_stream(streams: StreamQuery, resolution: str):
     file_id = secrets.token_hex(4)
     file_extension = "." + preferred_stream.mime_type.split("/")[1]
     filename = "video-stream-" + file_id + file_extension
-    preferred_stream.download(get_storage_directory(), filename)
+    preferred_stream.download("/storage", filename)
 
     return file_id, file_extension

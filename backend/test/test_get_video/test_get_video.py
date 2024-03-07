@@ -12,7 +12,7 @@ the MIT License. See the LICENSE file for more details.
 
 import pytest
 from fastapi import HTTPException
-from app.get_video import get_video
+from app.dependencies.get_video import get_video
 
 
 @pytest.mark.asyncio

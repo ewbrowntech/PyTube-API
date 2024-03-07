@@ -21,8 +21,8 @@ from pytube.exceptions import (
     VideoRegionBlocked,
     LiveStreamError,
 )
-from app.exceptions import ArgumentError
-from app.get_video import get_video
+from app.dependencies.exceptions import ArgumentError
+from app.dependencies.get_video import get_video
 
 
 async def verify_availability(youtube: YouTube = None, v: str = None):

@@ -13,7 +13,6 @@ the MIT License. See the LICENSE file for more details.
 import os
 import secrets
 from pytube.query import StreamQuery
-from app.get_storage_directory import get_storage_directory
 
 
 async def download_audio_stream(streams: StreamQuery):
@@ -24,6 +23,6 @@ async def download_audio_stream(streams: StreamQuery):
     # Download the audio stream
     file_id = secrets.token_hex(4)
     filename = file_id + ".mp3"
-    preferred_stream.download(get_storage_directory(), filename)
+    preferred_stream.download("/storage", filename)
 
     return file_id
