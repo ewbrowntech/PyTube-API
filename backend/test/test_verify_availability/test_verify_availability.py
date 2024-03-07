@@ -12,9 +12,9 @@ the MIT License. See the LICENSE file for more details.
 
 import pytest
 from fastapi import HTTPException
-from exceptions import ArgumentError
-from get_video import get_video
-from verify_availability import verify_availability
+from backend.exceptions import ArgumentError
+from backend.get_video import get_video
+from backend.verify_availability import verify_availability
 
 
 @pytest.mark.asyncio

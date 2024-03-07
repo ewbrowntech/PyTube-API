@@ -13,7 +13,7 @@ the MIT License. See the LICENSE file for more details.
 from pytube import YouTube
 from fastapi import HTTPException
 from pytube.exceptions import AgeRestrictedError
-from exceptions import ArgumentError
+from backend.exceptions import ArgumentError
 
 
 async def get_streams(youtube: YouTube):

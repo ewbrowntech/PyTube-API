@@ -11,7 +11,7 @@ the MIT License. See the LICENSE file for more details.
 """
 
 from pytube.query import StreamQuery
-from exceptions import ArgumentError, UnvailableResolutionException
+from backend.exceptions import ArgumentError, UnvailableResolutionException
 
 
 async def get_preferred_stream(streams: StreamQuery, resolution: str):

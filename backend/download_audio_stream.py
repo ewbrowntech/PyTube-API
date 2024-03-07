@@ -13,7 +13,7 @@ the MIT License. See the LICENSE file for more details.
 import os
 import secrets
 from pytube.query import StreamQuery
-from get_storage_directory import get_storage_directory
+from backend.get_storage_directory import get_storage_directory
 
 
 async def download_audio_stream(streams: StreamQuery):

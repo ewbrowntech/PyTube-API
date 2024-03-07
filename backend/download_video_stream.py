@@ -14,8 +14,8 @@ import os
 import logging
 import secrets
 from pytube.query import StreamQuery
-from get_preferred_stream import get_preferred_stream
-from get_storage_directory import get_storage_directory
+from backend.get_preferred_stream import get_preferred_stream
+from backend.get_storage_directory import get_storage_directory
 
 # Configure logging
 logging.basicConfig(

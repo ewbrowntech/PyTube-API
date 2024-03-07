@@ -11,15 +11,15 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import os
-from exceptions import ArgumentError
-from get_video import get_video
-from get_streams import get_streams
-from get_preferred_stream import get_preferred_stream
-from download_audio_stream import download_audio_stream
-from download_video_stream import download_video_stream
-from ffmpeg_utilities.transcode_video import transcode_video
-from ffmpeg_utilities.stitch_video import stitch_video
-from get_storage_directory import get_storage_directory
+from backend.exceptions import ArgumentError
+from backend.get_video import get_video
+from backend.get_streams import get_streams
+from backend.get_preferred_stream import get_preferred_stream
+from backend.download_audio_stream import download_audio_stream
+from backend.download_video_stream import download_video_stream
+from backend.ffmpeg_utilities.transcode_video import transcode_video
+from backend.ffmpeg_utilities.stitch_video import stitch_video
+from backend.get_storage_directory import get_storage_directory
 
 
 async def download_youtube_video(

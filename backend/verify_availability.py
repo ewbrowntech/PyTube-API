@@ -12,7 +12,6 @@ the MIT License. See the LICENSE file for more details.
 
 from fastapi import HTTPException
 from pytube import YouTube
-from exceptions import ArgumentError
 from pytube.exceptions import (
     AgeRestrictedError,
     MembersOnly,
@@ -22,8 +21,8 @@ from pytube.exceptions import (
     VideoRegionBlocked,
     LiveStreamError,
 )
-from exceptions import ArgumentError
-from get_video import get_video
+from backend.exceptions import ArgumentError
+from backend.get_video import get_video
 
 
 async def verify_availability(youtube: YouTube = None, v: str = None):

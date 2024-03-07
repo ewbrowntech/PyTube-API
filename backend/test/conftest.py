@@ -11,8 +11,8 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import pytest_asyncio
-from get_video import get_video
-from get_streams import get_streams
+from backend.get_video import get_video
+from backend.get_streams import get_streams
 
 
 @pytest_asyncio.fixture(scope="function")
@@ -20,7 +20,7 @@ async def test_client():
     """
     Generate and yield a test client for use in unit tests
     """
-    from app import app
+    from backend.app import app
     from fastapi.testclient import TestClient
 
     test_client = TestClient(app)

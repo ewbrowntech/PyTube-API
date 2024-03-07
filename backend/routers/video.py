@@ -13,10 +13,10 @@ the MIT License. See the LICENSE file for more details.
 import os
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
-from limiter import limiter
-from get_storage_directory import get_storage_directory
-from get_video import get_video
-from main import download_youtube_video
+from backend.limiter import limiter
+from backend.get_storage_directory import get_storage_directory
+from backend.get_video import get_video
+from backend.main import download_youtube_video
 
 
 router = APIRouter()
