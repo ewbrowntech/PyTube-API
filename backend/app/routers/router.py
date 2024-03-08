@@ -15,6 +15,8 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
 from app.limiter import limiter
+from app.schema import Query
+from app.dependencies.perform_search import perform_search
 from app.dependencies.get_video import get_video
 from app.dependencies.get_metadata import get_metadata
 from app.dependencies.get_streams import get_streams
@@ -29,6 +31,15 @@ logger = logging.getLogger(__name__)
 
 async def remove_file(filepath: str):
     os.remove(filepath)
+
+
+@router.get("/search")
+async def search(query: Query):
+    """
+    Perform a YouTube search
+    """
+    results = await perform_search(query)
+    return {"videos": results}
 
 
 @router.get("/metadata", status_code=200)

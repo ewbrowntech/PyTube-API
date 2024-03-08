@@ -16,6 +16,7 @@ async def get_metadata(video):
     Get the available metadata of a YouTube video
     """
     metadata = {
+        "id": video.video_id,
         "title": video.title,
         "author": video.author,
         "views": video.views,
