@@ -30,15 +30,24 @@ async def remove_file(filepath: str):
     os.remove(filepath)
 
 
-@router.get("/resolutions", status_code=200)
-async def resolution(v: str):
+@router.get("/metadata", status_code=200)
+async def get_metadata(v: str):
     """
-    Get the available resolutions of a YouTube video
+    Get the available metadata of a YouTube video
     """
     video = await get_video(v)
     streams = await get_streams(video)
     resolutions = await get_resolutions(streams)
-    return {"resolutions": resolutions}
+    metadata = {
+        "title": video.title,
+        "author": video.author,
+        "views": video.views,
+        "rating": video.rating,
+        "age_restricted": video.age_restricted,
+        "publish_date": video.publish_date,
+        "resolutions": resolutions,
+    }
+    return metadata
 
 
 @router.get("/download/audio", status_code=200)
