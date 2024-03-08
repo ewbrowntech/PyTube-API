@@ -49,12 +49,15 @@ async def download_audio(
     """
     Download the audio track of a YouTube video
     """
+    # Get the available streams
     video = await get_video(v)
     streams = await get_streams(video)
-    print(video.title)
 
+    # Download the audio stream
     file_info = await download_audio_stream(streams)
     filename = file_info["file_id"] + "." + file_info["extension"]
+
+    # Return the downloaded file
     filepath = os.path.join("/storage", filename)
     background_tasks.add_task(remove_file, filepath)
     return FileResponse(path=filepath, filename=filename)
@@ -69,12 +72,15 @@ async def video(
     """
     Download the audio track of a YouTube video
     """
+    # Get the available streams
     video = await get_video(v)
     streams = await get_streams(video)
-    print(video.title)
 
+    # Download the video stream
     file_info = await download_video_stream(streams, resolution)
     filename = file_info["file_id"] + "." + file_info["extension"]
+
+    # Return the downloaded file
     filepath = os.path.join("/storage", filename)
     background_tasks.add_task(remove_file, filepath)
     return FileResponse(path=filepath, filename=filename)
