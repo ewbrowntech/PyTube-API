@@ -11,8 +11,11 @@ the MIT License. See the LICENSE file for more details.
 """
 
 import os
+import logging
 import secrets
 from pytube.query import StreamQuery
+
+logger = logging.getLogger(__name__)
 
 
 async def download_audio_stream(streams: StreamQuery):
@@ -22,7 +25,8 @@ async def download_audio_stream(streams: StreamQuery):
 
     # Download the audio stream
     file_id = secrets.token_hex(4)
-    filename = file_id + ".mp3"
+    extension = preferred_stream.mime_type.split("/")[1]
+    filename = f"{file_id}.{extension}"
     preferred_stream.download("/storage", filename)
 
-    return file_id
+    return {"file_id": file_id, "extension": extension}

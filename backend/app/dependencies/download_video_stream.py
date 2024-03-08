@@ -28,11 +28,11 @@ async def download_video_stream(streams: StreamQuery, resolution: str):
     # Get the video stream with the most compatible codec at the given resolution
     video_streams = streams.filter(only_video=True)
     preferred_stream = await get_preferred_stream(video_streams, resolution)
-    logger.info(str(preferred_stream))
+
     # Download the video stream
     file_id = secrets.token_hex(4)
-    file_extension = "." + preferred_stream.mime_type.split("/")[1]
-    filename = "video-stream-" + file_id + file_extension
+    extension = preferred_stream.mime_type.split("/")[1]
+    filename = f"{file_id}.{extension}"
     preferred_stream.download("/storage", filename)
 
-    return file_id, file_extension
+    return {"file_id": file_id, "extension": extension}
