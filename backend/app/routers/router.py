@@ -16,6 +16,7 @@ from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
 from app.limiter import limiter
 from app.dependencies.get_video import get_video
+from app.dependencies.get_metadata import get_metadata
 from app.dependencies.get_streams import get_streams
 from app.dependencies.get_resolutions import get_resolutions
 from app.dependencies.download_audio_stream import download_audio_stream
@@ -31,22 +32,15 @@ async def remove_file(filepath: str):
 
 
 @router.get("/metadata", status_code=200)
-async def get_metadata(v: str):
+async def metadata(v: str):
     """
     Get the available metadata of a YouTube video
     """
     video = await get_video(v)
+    metadata = await get_metadata(video)
     streams = await get_streams(video)
     resolutions = await get_resolutions(streams)
-    metadata = {
-        "title": video.title,
-        "author": video.author,
-        "views": video.views,
-        "rating": video.rating,
-        "age_restricted": video.age_restricted,
-        "publish_date": video.publish_date,
-        "resolutions": resolutions,
-    }
+    metadata["resolutions"] = resolutions
     return metadata
 
 
