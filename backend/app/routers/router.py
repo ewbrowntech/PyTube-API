@@ -33,6 +33,14 @@ async def remove_file(filepath: str):
     os.remove(filepath)
 
 
+@router.get("/healthcheck")
+async def healthcheck():
+    """
+    Check the health of the API
+    """
+    return {"status": "ok"}
+
+
 @router.get("/search")
 async def search(query: Query):
     """
